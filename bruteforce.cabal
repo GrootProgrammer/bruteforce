@@ -22,4 +22,4 @@ library
                       g2
     hs-source-dirs:   src
     default-language: Haskell2010
-    ghc-options: -fplugin=G2.Nebula
+    ghc-options: -fplugin=G2.Nebula -fplugin-opts=G2.Nebula:--no-labeled-errors -fplugin-opts=G2.Nebula:--sym-unmapped
