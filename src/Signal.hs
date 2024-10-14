@@ -37,6 +37,7 @@ register :: a -> Signal a -> Signal a
 register df input = df :- input
 
 mealy :: (s -> i -> (s, o)) -> s -> Signal i -> Signal o
+mealy f s End = End
 mealy f s (h :- t) = o' :- (mealy f s' t)
     where
         (s', o') = f s h
