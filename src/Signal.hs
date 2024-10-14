@@ -16,17 +16,19 @@ where
 import Data.List
 
 
-data Signal a = a :- (Signal a)
+data Signal a = End | a :- (Signal a)
     deriving (Show, Eq)
 
 fromList :: [a] -> Signal a
 fromList (x : xs) = x :- (fromList xs)
+fromList [] = End
 
 toList :: Signal a -> [a]
 toList (x :- xs) = x : toList xs
+toList End = []
 
 now :: Signal a -> a
-now (h :- t) = h
+now (h :- _) = h
 
 next :: Signal a -> Signal a
 next (h :- t) = t
