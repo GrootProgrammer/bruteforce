@@ -13,8 +13,17 @@
 module Signal
 where
 
+import Data.List
+
+
 data Signal a = a :- (Signal a)
     deriving (Show, Eq)
+
+fromList :: [a] -> Signal a
+fromList (x : xs) = x :- (fromList xs)
+
+toList :: Signal a -> [a]
+toList (x :- xs) = x : toList xs
 
 now :: Signal a -> a
 now (h :- t) = h
@@ -43,5 +52,5 @@ direct_integrator :: Signal Integer -> Signal Integer
 direct_integrator i = mealy (\(a1, a2) b -> ((b, a1), (a1 + a2))) (0,0) i
 
 {-# RULES 
-"morgans law" forall i. register (0 :: Integer) (direct_integrator i) = direct_integrator (register (0 :: Integer) i)
+"morgans law" forall i. toList (register (0 :: Integer) (direct_integrator i)) = (toList (direct_integrator (register (0 :: Integer) i)))
 #-}
