@@ -1,0 +1,4 @@
+packages:
+  bruteforce.cabal
+
+write-ghc-environment-files: always

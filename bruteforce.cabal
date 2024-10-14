@@ -1,0 +1,25 @@
+cabal-version:      3.0
+name:               clash-prelude-g2
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            BSD-2-Clause
+license-file:       LICENSE
+author:             r.t.groot@student.utwente.nl
+maintainer:         r.t.groot@student.utwente.nl
+-- copyright:
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  Signal
+    build-depends:    base,
+                      g2
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options: -fplugin=G2.Nebula
