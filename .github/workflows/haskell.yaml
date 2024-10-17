@@ -50,9 +50,9 @@ jobs:
 
     - name: Running
       run: |
-        time cabal run GGnebula -- --no-labeled-errors src\Signal.hs "morgans law 0" i
-        time cabal run GGnebula -- --no-labeled-errors src\Signal.hs "morgans law 1" i
-        time cabal run GGnebula -- --no-labeled-errors src\Signal.hs "morgans law 2" i
-        time cabal run GGnebula -- --no-labeled-errors src\Signal.hs "morgans law 3" i
-        time cabal run GGnebula -- --no-labeled-errors src\Signal.hs "morgans law 4" i
-        time cabal run GGnebula -- --no-labeled-errors src\Signal.hs "morgans law 5" i
+        time cabal run GGnebula -- --no-labeled-errors src/Signal.hs "morgans law 0" i
+        time cabal run GGnebula -- --no-labeled-errors src/Signal.hs "morgans law 1" i
+        time cabal run GGnebula -- --no-labeled-errors src/Signal.hs "morgans law 2" i
+        time cabal run GGnebula -- --no-labeled-errors src/Signal.hs "morgans law 3" i
+        time cabal run GGnebula -- --no-labeled-errors src/Signal.hs "morgans law 4" i
+        time cabal run GGnebula -- --no-labeled-errors src/Signal.hs "morgans law 5" i
