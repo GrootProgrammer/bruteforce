@@ -2,3 +2,4 @@ packages:
   bruteforce.cabal
 
 write-ghc-environment-files: always
+with-compiler: ghc-9.0.2

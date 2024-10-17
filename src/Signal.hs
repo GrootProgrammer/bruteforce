@@ -59,5 +59,5 @@ directIntegrator2 :: Signal Integer -> Signal Integer
 directIntegrator2 i = foldl addS (sRepeat 0) (take 4 $ iterate (register 0) i)
 
 {-# RULES
-"morgans law" forall i. register (0 :: Integer) (directIntegrator2 i) = directIntegrator2 (register (0 :: Integer) i)
+"morgans law" forall i. take 5 $ toList $ register (0 :: Integer) (directIntegrator2 i) =  take 5 $ toList $ directIntegrator2 (register (0 :: Integer) i)
 #-}
