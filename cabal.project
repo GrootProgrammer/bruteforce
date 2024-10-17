@@ -6,4 +6,4 @@ source-repository-package
   location: https://github.com/GrootProgrammer/G2-clash
 
 write-ghc-environment-files: always
-with-compiler: ghc-9.6.1
+-- with-compiler: ghc-9.6.1
