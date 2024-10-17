@@ -53,11 +53,11 @@ subS :: Signal Integer -> Signal Integer -> Signal Integer
 subS = zipS (-)
 
 directIntegrator :: Signal Integer -> Signal Integer
-directIntegrator = mealy (\(a1, a2) b -> ((b, a1), a1 + a2)) (0,0)
+directIntegrator = mealy (\(a1, a2, a3, a4) b -> ((b, a1, a2, a3), a1 + a2 + a3 + a4)) (0,0,0,0)
 
 directIntegrator2 :: Signal Integer -> Signal Integer
-directIntegrator2 i = foldl addS (sRepeat 0) (take 4 $ iterate (register 0) i)
+directIntegrator2 = mealy (\(acc, a1, a2, a3, a4) b -> ((acc + b - a4,b, a1, a2, a3), acc)) (0,0,0,0,0)
 
 {-# RULES
-"morgans law" forall i. take 5 $ toList $ register (0 :: Integer) (directIntegrator2 i) =  take 5 $ toList $ directIntegrator2 (register (0 :: Integer) i)
+"morgans law" forall i. take 5 $ toList $ directIntegrator i = take 5 $ toList $ directIntegrator2 i
 #-}
